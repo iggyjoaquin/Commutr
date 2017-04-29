@@ -10,9 +10,14 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    var singleton = CommutrResources.sharedResources;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        print(singleton.getProps())
     }
 
     override func didReceiveMemoryWarning() {

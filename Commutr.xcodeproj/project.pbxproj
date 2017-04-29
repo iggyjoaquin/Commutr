@@ -15,6 +15,7 @@
 		DC12AFBF1EB549B900DC60B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC12AFBD1EB549B900DC60B6 /* LaunchScreen.storyboard */; };
 		DC12AFCA1EB549B900DC60B6 /* CommutrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFC91EB549B900DC60B6 /* CommutrTests.swift */; };
 		DC12AFD51EB549B900DC60B6 /* CommutrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFD41EB549B900DC60B6 /* CommutrUITests.swift */; };
+		DC12AFE51EB5590500DC60B6 /* CommutrResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		DC12AFD01EB549B900DC60B6 /* CommutrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommutrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC12AFD41EB549B900DC60B6 /* CommutrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutrUITests.swift; sourceTree = "<group>"; };
 		DC12AFD61EB549B900DC60B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommutrResources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				DC12AFBB1EB549B900DC60B6 /* Assets.xcassets */,
 				DC12AFBD1EB549B900DC60B6 /* LaunchScreen.storyboard */,
 				DC12AFC01EB549B900DC60B6 /* Info.plist */,
+				DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */,
 			);
 			path = Commutr;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				DC12AFB71EB549B900DC60B6 /* SecondViewController.swift in Sources */,
 				DC12AFB31EB549B900DC60B6 /* AppDelegate.swift in Sources */,
 				DC12AFB51EB549B900DC60B6 /* FirstViewController.swift in Sources */,
+				DC12AFE51EB5590500DC60B6 /* CommutrResources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
