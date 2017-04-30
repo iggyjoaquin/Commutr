@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -98,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Add-->
+        <!--AddViewController-->
         <scene sceneID="2uU-6p-9lC">
             <objects>
-                <viewController id="Vfu-62-6ON" sceneMemberID="viewController">
+                <viewController title="AddViewController" id="Vfu-62-6ON" customClass="AddViewController" customModule="Commutr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4XT-rZ-seK"/>
                         <viewControllerLayoutGuide type="bottom" id="A1A-LL-xMi"/>
@@ -109,14 +110,62 @@
                     <view key="view" contentMode="scaleToFill" id="3hO-vE-DXQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d04-Lu-vwA">
+                                <rect key="frame" x="16" y="42" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q0e-fz-koy">
+                                <rect key="frame" x="16" y="87" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Priority (1 - 10)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHx-Ku-Unb">
+                                <rect key="frame" x="16" y="132" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ga5-Dj-Leb">
+                                <rect key="frame" x="16" y="177" width="343" height="30"/>
+                                <state key="normal" title="Add to Queue">
+                                    <color key="titleShadowColor" red="0.85819128789999999" green="0.85819128789999999" blue="0.85819128789999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addItemToMainQueue:" destination="Vfu-62-6ON" eventType="touchUpInside" id="Xaq-US-vNb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RHx-Ku-Unb" firstAttribute="top" secondItem="Q0e-fz-koy" secondAttribute="bottom" constant="15" id="8Ks-Ss-bgU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RHx-Ku-Unb" secondAttribute="trailing" id="9qe-g4-kFn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="d04-Lu-vwA" secondAttribute="leading" id="ECo-ky-07j"/>
+                            <constraint firstItem="d04-Lu-vwA" firstAttribute="top" secondItem="4XT-rZ-seK" secondAttribute="bottom" constant="22" id="I0A-VM-6UT"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Q0e-fz-koy" secondAttribute="leading" id="MWy-dE-PJu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d04-Lu-vwA" secondAttribute="trailing" id="NTi-8f-qA4"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="RHx-Ku-Unb" secondAttribute="leading" id="Sps-Tp-0F5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q0e-fz-koy" secondAttribute="trailing" id="c5z-T6-nwK"/>
+                            <constraint firstItem="ga5-Dj-Leb" firstAttribute="top" secondItem="RHx-Ku-Unb" secondAttribute="bottom" constant="15" id="jeZ-od-zci"/>
+                            <constraint firstItem="ga5-Dj-Leb" firstAttribute="leading" secondItem="RHx-Ku-Unb" secondAttribute="leading" id="kRh-cz-TTV"/>
+                            <constraint firstItem="ga5-Dj-Leb" firstAttribute="trailing" secondItem="RHx-Ku-Unb" secondAttribute="trailing" id="mYg-zU-a0j"/>
+                            <constraint firstItem="Q0e-fz-koy" firstAttribute="top" secondItem="d04-Lu-vwA" secondAttribute="bottom" constant="15" id="spa-r7-M2l"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="first" id="32W-nX-02M"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="itemPriority" destination="RHx-Ku-Unb" id="N8d-lj-vhE"/>
+                        <outlet property="itemTitle" destination="d04-Lu-vwA" id="nrG-Np-dsy"/>
+                        <outlet property="storyPoints" destination="Q0e-fz-koy" id="76J-JZ-hn6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQx-uo-R6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="807"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="806.44677661169419"/>
         </scene>
     </scenes>
     <resources>
