@@ -23,20 +23,6 @@ class AddViewController: UIViewController {
     
     var singleton = CommutrResources.sharedResources;
     
-    struct ListItem {
-        var title: String
-        var storyPoints: Double
-        var priority: Double
-        
-        init(title: String, storyPoints: Double, priority: Double) {
-            self.title = title
-            self.storyPoints = storyPoints
-            self.priority = priority
-            print("init'd")
-        }
-        
-        
-    }
 
     //inputs
     //TODO: Ensure that inputs are number fields
@@ -47,16 +33,18 @@ class AddViewController: UIViewController {
     
     @IBAction func addItemToMainQueue(_ sender: UIButton) {
         if let title = itemTitle?.text, let points = storyPoints?.text, let priority = itemPriority?.text {
-            //safely unwrapped
-            //lets make a struct that represents the item
             
-            var newItem = ListItem(title: title, storyPoints: Double(points)!, priority: Double(priority)!)
-            
-            //TODO: Pass to singleton
-            
-            
+            if let numPoints = Double(points), let numPriority = Double(priority) {
+                //safely unwrapped
+                //pass to singleton
+                singleton.addItem(title: title, points: numPoints, priority: numPriority)
+            }
+            else {
+                print("Bad input")
+            }
+        
         } else {
-            print("There was some problem")
+            print("There was some problem unwrapping the optionals ")
         }
         
     }

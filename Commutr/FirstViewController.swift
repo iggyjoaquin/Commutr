@@ -12,23 +12,25 @@ class FirstViewController: UIViewController {
     
     var singleton = CommutrResources.sharedResources;
     
+    @IBOutlet weak var timePicker: UIDatePicker!
+    
+    
+    @IBAction func submitTime(_ sender: UIButton) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        let timeString = timeFormatter.string(from: timePicker.date)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        UITabBar.appearance().tintColor = UIColor.black
-        UITabBar.appearance().backgroundColor = hexStringToUIColor(hex: "#434343")
-        print(singleton.getProps())
+        //UITabBar.appearance().tintColor = UIColor.black
+        //UITabBar.appearance().backgroundColor = hexStringToUIColor(hex: "#434343")
+    
     
     }
-    
-    
-    @IBAction func printNameButton(_ sender: UIButton) {
-        print(singleton.getProps())
-    }
-    
-    
-    
+
     //helper function for hex colors
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -52,12 +54,6 @@ class FirstViewController: UIViewController {
         )
     }
     
-    //unused
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
-
-
+    
 }
 

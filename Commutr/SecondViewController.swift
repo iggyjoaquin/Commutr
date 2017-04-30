@@ -17,7 +17,7 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        print(singleton.getProps())
+        
     }
 
     override func didReceiveMemoryWarning() {
