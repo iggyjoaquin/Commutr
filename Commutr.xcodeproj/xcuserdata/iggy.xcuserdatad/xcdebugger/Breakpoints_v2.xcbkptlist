@@ -6,22 +6,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Commutr/FirstViewController.swift"
-            timestampString = "515260099.132246"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "hexStringToUIColor(hex:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -63,6 +47,84 @@
             endingLineNumber = "45"
             landmarkName = "addItemToMainQueue(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Commutr/FirstViewController.swift"
+            timestampString = "515267184.007067"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "FirstViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Commutr.FirstViewController.pickTimeSubview.getter : Commutr.PickTimeSubView"
+                  moduleName = "Commutr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/FirstViewController.swift"
+                  timestampString = "515267184.014125"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Commutr.FirstViewController.pickTimeSubview.setter : Commutr.PickTimeSubView"
+                  moduleName = "Commutr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/FirstViewController.swift"
+                  timestampString = "515267184.016598"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Commutr.FirstViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Commutr.FirstViewController"
+                  moduleName = "Commutr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/FirstViewController.swift"
+                  timestampString = "515267184.018878"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "129">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Commutr.FirstViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Commutr.FirstViewController&gt;"
+                  moduleName = "Commutr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/FirstViewController.swift"
+                  timestampString = "515267184.021086"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "69">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

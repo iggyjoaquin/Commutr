@@ -17,6 +17,8 @@
 		DC12AFD51EB549B900DC60B6 /* CommutrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFD41EB549B900DC60B6 /* CommutrUITests.swift */; };
 		DC12AFE51EB5590500DC60B6 /* CommutrResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */; };
 		DC12AFE71EB5728C00DC60B6 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFE61EB5728C00DC60B6 /* AddViewController.swift */; };
+		DC12AFE91EB644A000DC60B6 /* PickTimeSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */; };
+		DC12AFEB1EB644DF00DC60B6 /* PickTimeSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		DC12AFD61EB549B900DC60B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommutrResources.swift; sourceTree = "<group>"; };
 		DC12AFE61EB5728C00DC60B6 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickTimeSubView.xib; sourceTree = "<group>"; };
+		DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickTimeSubView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 				DC12AFC01EB549B900DC60B6 /* Info.plist */,
 				DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */,
 				DC12AFE61EB5728C00DC60B6 /* AddViewController.swift */,
+				DC12AFEC1EB6559500DC60B6 /* Subviews */,
 			);
 			path = Commutr;
 			sourceTree = "<group>";
@@ -132,6 +137,15 @@
 				DC12AFD61EB549B900DC60B6 /* Info.plist */,
 			);
 			path = CommutrUITests;
+			sourceTree = "<group>";
+		};
+		DC12AFEC1EB6559500DC60B6 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */,
+				DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */,
+			);
+			name = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +259,7 @@
 				DC12AFBF1EB549B900DC60B6 /* LaunchScreen.storyboard in Resources */,
 				DC12AFBC1EB549B900DC60B6 /* Assets.xcassets in Resources */,
 				DC12AFBA1EB549B900DC60B6 /* Main.storyboard in Resources */,
+				DC12AFE91EB644A000DC60B6 /* PickTimeSubView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC12AFE71EB5728C00DC60B6 /* AddViewController.swift in Sources */,
+				DC12AFEB1EB644DF00DC60B6 /* PickTimeSubView.swift in Sources */,
 				DC12AFB71EB549B900DC60B6 /* SecondViewController.swift in Sources */,
 				DC12AFB31EB549B900DC60B6 /* AppDelegate.swift in Sources */,
 				DC12AFB51EB549B900DC60B6 /* FirstViewController.swift in Sources */,
