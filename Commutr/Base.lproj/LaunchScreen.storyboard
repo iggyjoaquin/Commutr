@@ -28,9 +28,9 @@
                                 <color key="textColor" red="0.92504944110647991" green="0.99064880609512329" blue="0.97583865790124058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decision fatigue? What's that?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-RJ-1Jn">
-                                <rect key="frame" x="50" y="372" width="312" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decisions made a little simpler." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-RJ-1Jn">
+                                <rect key="frame" x="50" y="372" width="312" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.95083229890393361" green="0.96479014339685865" blue="0.99064880609512329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.29910847544670105" green="0.46151953935623169" blue="0.99064880609512329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40815950797302769" green="0.54960295074169019" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="sQX-RJ-1Jn" secondAttribute="trailing" constant="-3" id="1bg-85-c0j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dLH-rA-Zda" secondAttribute="trailing" constant="44" id="GUC-I4-EIK"/>

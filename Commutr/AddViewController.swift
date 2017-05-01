@@ -10,11 +10,13 @@ import UIKit
 class AddViewController: UIViewController {
     
     //inputs
-    //TODO: Ensure that inputs are number fields
     @IBOutlet weak var itemTitle: UITextField!
     @IBOutlet weak var storyPoints: UITextField!
     @IBOutlet weak var itemPriority: UITextField!
     @IBOutlet weak var topLabel: UILabel!
+    
+    @IBOutlet weak var addToQueueButton: UIButton!
+    
     
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
@@ -37,33 +39,7 @@ class AddViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         
-        //UI stuff
-        let border = CALayer()
-        let width = CGFloat(1.5)
-        border.borderColor = UIColor.lightGray.cgColor
-        border.frame = CGRect(x: 0, y: itemTitle.frame.size.height - width, width:  itemTitle.frame.size.width, height: itemTitle.frame.size.height)
-        border.borderWidth = width
-        
-        itemTitle.layer.addSublayer(border)
-        itemTitle.layer.masksToBounds = true
-    
-        let secondBorder = CALayer()
-        secondBorder.borderColor = UIColor.lightGray.cgColor
-        secondBorder.frame = CGRect(x: 0, y: storyPoints.frame.size.height - width, width:  storyPoints.frame.size.width, height: storyPoints.frame.size.height)
-        secondBorder.borderWidth = width
-        
-        storyPoints.layer.addSublayer(secondBorder)
-        storyPoints.layer.masksToBounds = true
-        
-        
-        let thirdBorder = CALayer()
-        thirdBorder.borderColor = UIColor.lightGray.cgColor
-        thirdBorder.frame = CGRect(x: 0, y: itemPriority.frame.size.height - width, width:  itemPriority.frame.size.width, height: itemPriority.frame.size.height)
-        thirdBorder.borderWidth = width
-        
-        itemPriority.layer.addSublayer(thirdBorder)
-        itemPriority.layer.masksToBounds = true
-       
+        formatUserInterface()
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,6 +58,12 @@ class AddViewController: UIViewController {
                 //safely unwrapped
                 //pass to singleton
                 singleton.addItem(title: title, points: numPoints, priority: numPriority)
+                
+                let alertController = UIAlertController(title: "Task added", message:
+                    "We added a task to todays list.", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
             }
             else {
                 print("Bad input")
@@ -93,6 +75,33 @@ class AddViewController: UIViewController {
         
     }
     
+    
+    func formatUserInterface() {
+        let border = CALayer()
+        let secondBorder = CALayer()
+        let thirdBorder = CALayer()
+        let width = CGFloat(1.5)
+        
+        
+        //configure borders
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: itemTitle.frame.size.height - width, width:  itemTitle.frame.size.width, height: itemTitle.frame.size.height)
+        border.borderWidth = width
+        secondBorder.borderColor = UIColor.lightGray.cgColor
+        secondBorder.frame = CGRect(x: 0, y: storyPoints.frame.size.height - width, width:  storyPoints.frame.size.width, height: storyPoints.frame.size.height)
+        secondBorder.borderWidth = width
+        thirdBorder.borderColor = UIColor.lightGray.cgColor
+        thirdBorder.frame = CGRect(x: 0, y: itemPriority.frame.size.height - width, width:  itemPriority.frame.size.width, height: itemPriority.frame.size.height)
+        thirdBorder.borderWidth = width
+        
+        //apply borders
+        itemTitle.layer.addSublayer(border)
+        itemTitle.layer.masksToBounds = true
+        storyPoints.layer.addSublayer(secondBorder)
+        storyPoints.layer.masksToBounds = true
+        itemPriority.layer.addSublayer(thirdBorder)
+        itemPriority.layer.masksToBounds = true
+    }
     
 }
 
