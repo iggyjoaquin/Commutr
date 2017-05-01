@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sab-wE-HS5" customClass="PickTimeSubView" customModule="Commutr" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sab-wE-HS5" userLabel="subViewsContainer" customClass="PickTimeSubView" customModule="Commutr" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="298"/>
                                 <color key="backgroundColor" red="0.16044190802074343" green="1" blue="0.2838910648406977" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -84,10 +84,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Dish" image="tabBarItem:acW-dT-cKf:image" selectedImage="tabBarItem:acW-dT-cKf:selectedImage" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="subviewsContainer" destination="Sab-wE-HS5" id="PBz-0l-UHP"/>
                         <outlet property="tableView" destination="OIZ-yN-KRP" id="EZj-R9-coX"/>
                         <outlet property="tableViewTopConstraint" destination="xqV-fV-8ZC" id="Sd6-b4-Axx"/>
                         <outlet property="timePickerBottomConstraint" destination="VX8-9G-ebh" id="44L-yQ-0Nw"/>
-                        <outlet property="timePickerContainer" destination="Sab-wE-HS5" id="73f-tw-lq5"/>
                     </connections>
                 </viewController>
             </objects>

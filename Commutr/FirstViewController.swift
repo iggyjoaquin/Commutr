@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FirstViewController: UIViewController {
     
@@ -18,13 +19,13 @@ class FirstViewController: UIViewController {
     
     //subviews
     var timeSubview : PickTimeSubView? = nil
-    
+    var mapSubview : MapSubView? = nil
     
     //outlets
-    @IBOutlet weak var timePickerContainer: UIView!
+    @IBOutlet weak var subviewsContainer: UIView!
+    
     
     @IBOutlet weak var timePickerBottomConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     //actions
@@ -36,22 +37,43 @@ class FirstViewController: UIViewController {
         //FIXME: find a better way to do this
         //load subviews from nibs
         let loadTimeSubview = PickTimeSubView.fromNib()
-        timePickerContainer.addSubview(loadTimeSubview)
-        loadTimeSubview.boundInside(timePickerContainer)
-        timeSubview = loadTimeSubview;
+        subviewsContainer.addSubview(loadTimeSubview)
+        loadTimeSubview.boundInside(subviewsContainer)
+        timeSubview = loadTimeSubview
         timeSubview?.delegate = self
         
+        let loadMapSubview = MapSubView.fromNib()
+        subviewsContainer.addSubview(loadMapSubview)
+        loadMapSubview.boundInside(subviewsContainer)
+        mapSubview = loadMapSubview
+        
+    
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        var manager = CLLocationManager()
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            print("Was not determined")
+            manager.requestWhenInUseAuthorization()
+        }
+        
         minimumConstraint = timePickerBottomConstraint.constant
         
         minimumHeight = tableViewTopConstraint.constant
         tableView.reloadData()
         
-        self.view.addSubview(timePickerContainer)
+        self.view.addSubview(subviewsContainer)
+        
+        mapSubview?.getETA {  (interval) in
+            print(interval)
+        }
+        
     }
 }
 
@@ -60,8 +82,7 @@ extension FirstViewController: PickTimeDelegate {
 
     func pickTimeSubview(_ subview: PickTimeSubView, didSelect time: TimeInterval) {
         
-
-        
+            //TODO: Stuff with shared resources
     }
     
 }

@@ -20,6 +20,10 @@
 		DC12AFE91EB644A000DC60B6 /* PickTimeSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */; };
 		DC12AFEB1EB644DF00DC60B6 /* PickTimeSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */; };
 		DC12AFEE1EB66FD300DC60B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFED1EB66FD300DC60B6 /* Extensions.swift */; };
+		DC12AFF41EB6A9F800DC60B6 /* MapSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC12AFF31EB6A9F800DC60B6 /* MapSubView.xib */; };
+		DC12AFF61EB6AA1100DC60B6 /* MapSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */; };
+		DC12AFF91EB6B25000DC60B6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC12AFF81EB6B25000DC60B6 /* MapKit.framework */; };
+		DC12AFFB1EB6B40100DC60B6 /* MapDirectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickTimeSubView.xib; sourceTree = "<group>"; };
 		DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickTimeSubView.swift; sourceTree = "<group>"; };
 		DC12AFED1EB66FD300DC60B6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DC12AFF31EB6A9F800DC60B6 /* MapSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapSubView.xib; sourceTree = "<group>"; };
+		DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSubView.swift; sourceTree = "<group>"; };
+		DC12AFF81EB6B25000DC60B6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDirectionsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC12AFF91EB6B25000DC60B6 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +102,7 @@
 				DC12AFC81EB549B900DC60B6 /* CommutrTests */,
 				DC12AFD31EB549B900DC60B6 /* CommutrUITests */,
 				DC12AFB01EB549B900DC60B6 /* Products */,
+				DC12AFF71EB6B25000DC60B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,8 +157,19 @@
 			children = (
 				DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */,
 				DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */,
+				DC12AFF31EB6A9F800DC60B6 /* MapSubView.xib */,
+				DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */,
+				DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */,
 			);
 			name = Subviews;
+			sourceTree = "<group>";
+		};
+		DC12AFF71EB6B25000DC60B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC12AFF81EB6B25000DC60B6 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +242,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = YACVP9VA6Q;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					DC12AFC41EB549B900DC60B6 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -259,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC12AFF41EB6A9F800DC60B6 /* MapSubView.xib in Resources */,
 				DC12AFBF1EB549B900DC60B6 /* LaunchScreen.storyboard in Resources */,
 				DC12AFBC1EB549B900DC60B6 /* Assets.xcassets in Resources */,
 				DC12AFBA1EB549B900DC60B6 /* Main.storyboard in Resources */,
@@ -293,7 +320,9 @@
 				DC12AFB31EB549B900DC60B6 /* AppDelegate.swift in Sources */,
 				DC12AFB51EB549B900DC60B6 /* FirstViewController.swift in Sources */,
 				DC12AFE51EB5590500DC60B6 /* CommutrResources.swift in Sources */,
+				DC12AFF61EB6AA1100DC60B6 /* MapSubView.swift in Sources */,
 				DC12AFEE1EB66FD300DC60B6 /* Extensions.swift in Sources */,
+				DC12AFFB1EB6B40100DC60B6 /* MapDirectionsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +478,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YACVP9VA6Q;
 				INFOPLIST_FILE = Commutr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ig-gy.istreuly.Commutr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YACVP9VA6Q;
 				INFOPLIST_FILE = Commutr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ig-gy.istreuly.Commutr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
