@@ -20,11 +20,12 @@
 		DC12AFE91EB644A000DC60B6 /* PickTimeSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */; };
 		DC12AFEB1EB644DF00DC60B6 /* PickTimeSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */; };
 		DC12AFEE1EB66FD300DC60B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFED1EB66FD300DC60B6 /* Extensions.swift */; };
-		DC12AFF41EB6A9F800DC60B6 /* MapSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC12AFF31EB6A9F800DC60B6 /* MapSubView.xib */; };
-		DC12AFF61EB6AA1100DC60B6 /* MapSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */; };
 		DC12AFF91EB6B25000DC60B6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC12AFF81EB6B25000DC60B6 /* MapKit.framework */; };
 		DC12AFFB1EB6B40100DC60B6 /* MapDirectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */; };
 		DC12AFFD1EB7748C00DC60B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFFC1EB7748C00DC60B6 /* MapViewController.swift */; };
+		DCA7BC5D1EB78908008C50C5 /* TimeWindowSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA7BC5C1EB78908008C50C5 /* TimeWindowSubView.xib */; };
+		DCA7BC5F1EB7891B008C50C5 /* TimeWindowSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA7BC5E1EB7891B008C50C5 /* TimeWindowSubView.swift */; };
+		DCA7BC631EB78F79008C50C5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA7BC621EB78F79008C50C5 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,11 +65,12 @@
 		DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickTimeSubView.xib; sourceTree = "<group>"; };
 		DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickTimeSubView.swift; sourceTree = "<group>"; };
 		DC12AFED1EB66FD300DC60B6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		DC12AFF31EB6A9F800DC60B6 /* MapSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapSubView.xib; sourceTree = "<group>"; };
-		DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSubView.swift; sourceTree = "<group>"; };
 		DC12AFF81EB6B25000DC60B6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDirectionsController.swift; sourceTree = "<group>"; };
 		DC12AFFC1EB7748C00DC60B6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DCA7BC5C1EB78908008C50C5 /* TimeWindowSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeWindowSubView.xib; sourceTree = "<group>"; };
+		DCA7BC5E1EB7891B008C50C5 /* TimeWindowSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeWindowSubView.swift; sourceTree = "<group>"; };
+		DCA7BC621EB78F79008C50C5 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +133,10 @@
 				DC12AFED1EB66FD300DC60B6 /* Extensions.swift */,
 				DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */,
 				DC12AFE61EB5728C00DC60B6 /* AddViewController.swift */,
+				DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */,
 				DC12AFEC1EB6559500DC60B6 /* Subviews */,
 				DC12AFFC1EB7748C00DC60B6 /* MapViewController.swift */,
+				DCA7BC621EB78F79008C50C5 /* Utilities.swift */,
 			);
 			path = Commutr;
 			sourceTree = "<group>";
@@ -160,9 +164,8 @@
 			children = (
 				DC12AFE81EB644A000DC60B6 /* PickTimeSubView.xib */,
 				DC12AFEA1EB644DF00DC60B6 /* PickTimeSubView.swift */,
-				DC12AFF31EB6A9F800DC60B6 /* MapSubView.xib */,
-				DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */,
-				DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */,
+				DCA7BC5C1EB78908008C50C5 /* TimeWindowSubView.xib */,
+				DCA7BC5E1EB7891B008C50C5 /* TimeWindowSubView.swift */,
 			);
 			name = Subviews;
 			sourceTree = "<group>";
@@ -288,8 +291,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC12AFF41EB6A9F800DC60B6 /* MapSubView.xib in Resources */,
 				DC12AFBF1EB549B900DC60B6 /* LaunchScreen.storyboard in Resources */,
+				DCA7BC5D1EB78908008C50C5 /* TimeWindowSubView.xib in Resources */,
 				DC12AFBC1EB549B900DC60B6 /* Assets.xcassets in Resources */,
 				DC12AFBA1EB549B900DC60B6 /* Main.storyboard in Resources */,
 				DC12AFE91EB644A000DC60B6 /* PickTimeSubView.xib in Resources */,
@@ -319,12 +322,13 @@
 			files = (
 				DC12AFE71EB5728C00DC60B6 /* AddViewController.swift in Sources */,
 				DC12AFEB1EB644DF00DC60B6 /* PickTimeSubView.swift in Sources */,
+				DCA7BC631EB78F79008C50C5 /* Utilities.swift in Sources */,
 				DC12AFB71EB549B900DC60B6 /* SecondViewController.swift in Sources */,
 				DC12AFFD1EB7748C00DC60B6 /* MapViewController.swift in Sources */,
 				DC12AFB31EB549B900DC60B6 /* AppDelegate.swift in Sources */,
 				DC12AFB51EB549B900DC60B6 /* FirstViewController.swift in Sources */,
+				DCA7BC5F1EB7891B008C50C5 /* TimeWindowSubView.swift in Sources */,
 				DC12AFE51EB5590500DC60B6 /* CommutrResources.swift in Sources */,
-				DC12AFF61EB6AA1100DC60B6 /* MapSubView.swift in Sources */,
 				DC12AFEE1EB66FD300DC60B6 /* Extensions.swift in Sources */,
 				DC12AFFB1EB6B40100DC60B6 /* MapDirectionsController.swift in Sources */,
 			);
@@ -577,6 +581,7 @@
 				DC12AFDB1EB549B900DC60B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC12AFDC1EB549B900DC60B6 /* Build configuration list for PBXNativeTarget "CommutrTests" */ = {
 			isa = XCConfigurationList;
@@ -585,6 +590,7 @@
 				DC12AFDE1EB549B900DC60B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC12AFDF1EB549B900DC60B6 /* Build configuration list for PBXNativeTarget "CommutrUITests" */ = {
 			isa = XCConfigurationList;
@@ -593,6 +599,7 @@
 				DC12AFE11EB549B900DC60B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

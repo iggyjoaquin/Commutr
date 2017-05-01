@@ -15,56 +15,34 @@ class FirstViewController: UIViewController {
     var minimumHeight : CGFloat = 0.0
     
     var singleton = CommutrResources.sharedResources;
-
+    var util : Utilities = Utilities()
+    
     
     //subviews
     var timeSubview : PickTimeSubView? = nil
-    var mapSubview : MapSubView? = nil
+    var timeWindowSubview : TimeWindowSubView? = nil
     
     //outlets
     @IBOutlet weak var subviewsContainer: UIView!
-    
-    
     @IBOutlet weak var timePickerBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    
+    
     //actions
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadSubviews()
+        formatUI()
         
-        //FIXME: find a better way to do this
-        //load subviews from nibs
-        let loadTimeSubview = PickTimeSubView.fromNib()
-        subviewsContainer.addSubview(loadTimeSubview)
-        loadTimeSubview.boundInside(subviewsContainer)
-        timeSubview = loadTimeSubview
-        
-        //change text color to white
-        timeSubview?.timePicker.setValue(UIColor.white, forKeyPath: "textColor")
-        timeSubview?.delegate = self
-        
-        //let loadMapSubview = MapSubView.fromNib()
-        //subviewsContainer.addSubview(loadMapSubview)
-        //loadMapSubview.boundInside(subviewsContainer)
-        //mapSubview = loadMapSubview
-        
-    
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        //adding to fix offset
-        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
-        
         //manually add items to test
-
         CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
         CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
-
-//        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
-//        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
     
     }
     
@@ -75,11 +53,7 @@ class FirstViewController: UIViewController {
         //    print("Was not determined")
         //    manager.requestWhenInUseAuthorization()
         //}
-        //mapSubview?.getETA {  (interval) in
-        //    print(interval)
-        //}
-        
-
+     
         minimumConstraint = timePickerBottomConstraint.constant
         
         minimumHeight = tableViewTopConstraint.constant
@@ -87,13 +61,43 @@ class FirstViewController: UIViewController {
         
         self.view.addSubview(subviewsContainer)
     }
+    
+    
+    func loadSubviews() {
+        let loadTimeSubview = PickTimeSubView.fromNib()
+        subviewsContainer.addSubview(loadTimeSubview)
+        loadTimeSubview.boundInside(subviewsContainer)
+        timeSubview = loadTimeSubview
+        
+        //change text color of timepicker to white
+        timeSubview?.timePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        timeSubview?.delegate = self
+        
+        let loadTimeLeftSubview = TimeWindowSubView.fromNib()
+        subviewsContainer.addSubview(loadTimeLeftSubview )
+        loadTimeLeftSubview.boundInside(subviewsContainer)
+        timeWindowSubview = loadTimeLeftSubview
+        
+    }
+    
+    func formatUI() {
+        timeWindowSubview?.isHidden = true
+    }
+    
+    
+    
 }
+
 
 extension FirstViewController: PickTimeDelegate {
     
     func pickTimeSubview(_ subview: PickTimeSubView, didSelect time: TimeInterval) {
         
             //TODO: Stuff with shared resources
+        
+            //hide picker
+            util.setView(view: timeSubview!, hidden: true)
+            util.setView(view: timeWindowSubview!, hidden: false)
     }
     
 }

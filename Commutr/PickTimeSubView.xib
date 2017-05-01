@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PickTimeSubView" customModule="Commutr" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="379" height="412"/>
+            <rect key="frame" x="0.0" y="0.0" width="379" height="281"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="F7v-Tq-huQ">
-                    <rect key="frame" x="8" y="0.0" width="306" height="412"/>
+                    <rect key="frame" x="8" y="0.0" width="306" height="281"/>
                     <color key="backgroundColor" red="0.19830624191300883" green="0.20227236675126903" blue="0.20227236675126903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="gVc-OP-2Fw"/>
@@ -31,7 +31,7 @@
                     </userDefinedRuntimeAttributes>
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXW-Bn-1MP">
-                    <rect key="frame" x="314" y="0.0" width="65" height="412"/>
+                    <rect key="frame" x="284" y="0.0" width="65" height="281"/>
                     <color key="backgroundColor" red="0.19969365000724792" green="0.20393270254135132" blue="0.20390713214874268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="dish tasks">
@@ -45,19 +45,19 @@
             <color key="backgroundColor" red="0.19969365000724792" green="0.20393270254135132" blue="0.20390713214874268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="F7v-Tq-huQ" secondAttribute="bottom" priority="900" id="BP5-fi-LwF"/>
-                <constraint firstAttribute="trailing" secondItem="wXW-Bn-1MP" secondAttribute="trailing" id="NZl-fu-y3E"/>
+                <constraint firstAttribute="trailing" secondItem="wXW-Bn-1MP" secondAttribute="trailing" constant="30" id="NZl-fu-y3E"/>
                 <constraint firstItem="F7v-Tq-huQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="OPW-5n-jGT"/>
                 <constraint firstItem="F7v-Tq-huQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="899" id="RQ4-d7-gEs"/>
                 <constraint firstItem="wXW-Bn-1MP" firstAttribute="top" secondItem="F7v-Tq-huQ" secondAttribute="top" id="Tts-y1-6lC"/>
                 <constraint firstItem="wXW-Bn-1MP" firstAttribute="height" secondItem="F7v-Tq-huQ" secondAttribute="height" id="fCK-AR-JdZ"/>
-                <constraint firstItem="wXW-Bn-1MP" firstAttribute="leading" secondItem="F7v-Tq-huQ" secondAttribute="trailing" id="qlH-X7-kPa"/>
+                <constraint firstItem="wXW-Bn-1MP" firstAttribute="leading" secondItem="F7v-Tq-huQ" secondAttribute="trailing" constant="-30" id="qlH-X7-kPa"/>
                 <constraint firstItem="F7v-Tq-huQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="xrr-tw-VwG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="timePicker" destination="F7v-Tq-huQ" id="W6c-J0-Nc2"/>
             </connections>
-            <point key="canvasLocation" x="27.5" y="-54"/>
+            <point key="canvasLocation" x="27.5" y="-119.5"/>
         </view>
     </objects>
 </document>

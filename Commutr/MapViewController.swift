@@ -12,36 +12,55 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
+    //import our utils
+    let utils : Utilities = Utilities()
+    
+    
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+    
+    @IBOutlet weak var searchResultsTableView: UITableView!
+    
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 1.
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     
+        
+        //autocompleter
+        searchCompleter.delegate = self
+        
+
+        //map route
         mapView.delegate = self
         
-        // 2.
         let sourceLocation = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472)
         let destinationLocation = CLLocationCoordinate2D(latitude: 40.748441, longitude: -73.985564)
         
-        // 3.
         let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
         let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
         
-        // 4.
         let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
         let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
         
-        // 5.
         let sourceAnnotation = MKPointAnnotation()
         sourceAnnotation.title = "Times Square"
         
         if let location = sourcePlacemark.location {
             sourceAnnotation.coordinate = location.coordinate
         }
-        
         
         let destinationAnnotation = MKPointAnnotation()
         destinationAnnotation.title = "Empire State Building"
@@ -50,10 +69,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             destinationAnnotation.coordinate = location.coordinate
         }
         
-        // 6.
         self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
         
-        // 7.
         let directionRequest = MKDirectionsRequest()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationMapItem
@@ -62,7 +79,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Calculate the direction
         let directions = MKDirections(request: directionRequest)
         
-        // 8.
         directions.calculate {
             (response, error) -> Void in
             
@@ -86,34 +102,68 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = hexStringToUIColor(hex: "#81A3FF")
+        renderer.strokeColor = utils.hexStringToUIColor(hex: "#81A3FF")
         renderer.lineWidth = 4.0
         
         return renderer
     }
-    
-    
-    //TODO move to Utilities.swift
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-
 }
+
+extension MapViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchCompleter.queryFragment = searchText
+    }
+}
+
+extension MapViewController: MKLocalSearchCompleterDelegate {
+    
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+        searchResultsTableView.reloadData()
+    }
+    
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        // handle error
+    }
+}
+
+extension MapViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let searchResult = searchResults[indexPath.row]
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        
+        cell.textLabel?.text = searchResult.title
+        cell.detailTextLabel?.text = searchResult.subtitle
+        return cell
+    }
+}
+
+extension MapViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let completion = searchResults[indexPath.row]
+        print(searchResults)
+        
+        
+        let searchRequest = MKLocalSearchRequest(completion: completion)
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            let coordinate = response?.mapItems[0].placemark.coordinate
+            print(String(describing: coordinate))
+        }
+    }
+}
+
+
