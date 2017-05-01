@@ -40,28 +40,32 @@ class FirstViewController: UIViewController {
         subviewsContainer.addSubview(loadTimeSubview)
         loadTimeSubview.boundInside(subviewsContainer)
         timeSubview = loadTimeSubview
+        
+        //change text color to white
+        timeSubview?.timePicker.setValue(UIColor.white, forKeyPath: "textColor")
         timeSubview?.delegate = self
         
-        let loadMapSubview = MapSubView.fromNib()
-        subviewsContainer.addSubview(loadMapSubview)
-        loadMapSubview.boundInside(subviewsContainer)
-        mapSubview = loadMapSubview
+        //let loadMapSubview = MapSubView.fromNib()
+        //subviewsContainer.addSubview(loadMapSubview)
+        //loadMapSubview.boundInside(subviewsContainer)
+        //mapSubview = loadMapSubview
         
     
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var manager = CLLocationManager()
+        //var manager = CLLocationManager()
         
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            print("Was not determined")
-            manager.requestWhenInUseAuthorization()
-        }
+        //if CLLocationManager.authorizationStatus() == .notDetermined {
+        //    print("Was not determined")
+        //    manager.requestWhenInUseAuthorization()
+        //}
+        //mapSubview?.getETA {  (interval) in
+        //    print(interval)
+        //}
         
         minimumConstraint = timePickerBottomConstraint.constant
         
@@ -69,17 +73,11 @@ class FirstViewController: UIViewController {
         tableView.reloadData()
         
         self.view.addSubview(subviewsContainer)
-        
-        mapSubview?.getETA {  (interval) in
-            print(interval)
-        }
-        
     }
 }
 
 extension FirstViewController: PickTimeDelegate {
     
-
     func pickTimeSubview(_ subview: PickTimeSubView, didSelect time: TimeInterval) {
         
             //TODO: Stuff with shared resources
@@ -92,14 +90,15 @@ extension FirstViewController : UITableViewDelegate {
         var offset = scrollView.contentOffset.y
 
         timePickerBottomConstraint.constant = min(offset + minimumConstraint, 0)
-        print(timePickerBottomConstraint.constant)
+        //print(timePickerBottomConstraint.constant)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 && indexPath.row == 0 {
             return -1 * minimumConstraint
         } else {
-            return 32
+            //height for each cell
+            return 72
         }
     }
     
@@ -125,7 +124,7 @@ extension FirstViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 21
+        return 14
     }
     
     

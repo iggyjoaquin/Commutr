@@ -44,7 +44,7 @@ class MapDirectionsController {
                     directionsRequestObject.destination = mapItem
                     
                     directionsRequestObject.departureDate = Date()
-                    directionsRequestObject.transportType = .walking
+                    directionsRequestObject.transportType = .automobile
                     
                     let directions = MKDirections(request: directionsRequestObject)
                     

@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Commutr/AddViewController.swift"
-            timestampString = "515259686.59685"
+            timestampString = "515305491.846009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "addItemToMainQueue(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Commutr/AddViewController.swift"
-            timestampString = "515259686.59685"
+            timestampString = "515305491.846009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "addItemToMainQueue(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -81,54 +81,6 @@
             endingLineNumber = "45"
             landmarkName = "getETA(callback:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Commutr/MapDirectionsController.swift"
-            timestampString = "515295983.844484"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "getETA(address:callback:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Commutr.MapDirectionsController.(getETA (address : Swift.String, callback : (Swift.Double) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Commutr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/MapDirectionsController.swift"
-                  timestampString = "515295984.006872"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Commutr.MapDirectionsController.(getETA (address : Swift.String, callback : (Swift.Double) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Commutr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/MapDirectionsController.swift"
-                  timestampString = "515295984.00953"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "165">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

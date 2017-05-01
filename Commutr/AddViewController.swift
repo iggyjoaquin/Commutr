@@ -8,12 +8,46 @@
 import UIKit
 
 class AddViewController: UIViewController {
-
+    
+    //inputs
+    //TODO: Ensure that inputs are number fields
+    @IBOutlet weak var itemTitle: UITextField!
+    @IBOutlet weak var storyPoints: UITextField!
+    @IBOutlet weak var itemPriority: UITextField!
+    @IBOutlet weak var topLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-
+        //UI stuff
+        let border = CALayer()
+        let width = CGFloat(1.5)
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: itemTitle.frame.size.height - width, width:  itemTitle.frame.size.width, height: itemTitle.frame.size.height)
+        border.borderWidth = width
+        
+        itemTitle.layer.addSublayer(border)
+        itemTitle.layer.masksToBounds = true
+    
+        let secondBorder = CALayer()
+        secondBorder.borderColor = UIColor.lightGray.cgColor
+        secondBorder.frame = CGRect(x: 0, y: storyPoints.frame.size.height - width, width:  storyPoints.frame.size.width, height: storyPoints.frame.size.height)
+        secondBorder.borderWidth = width
+        
+        storyPoints.layer.addSublayer(secondBorder)
+        storyPoints.layer.masksToBounds = true
+        
+        
+        let thirdBorder = CALayer()
+        thirdBorder.borderColor = UIColor.lightGray.cgColor
+        thirdBorder.frame = CGRect(x: 0, y: itemPriority.frame.size.height - width, width:  itemPriority.frame.size.width, height: itemPriority.frame.size.height)
+        thirdBorder.borderWidth = width
+        
+        itemPriority.layer.addSublayer(thirdBorder)
+        itemPriority.layer.masksToBounds = true
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,14 +56,6 @@ class AddViewController: UIViewController {
     }
     
     var singleton = CommutrResources.sharedResources;
-    
-
-    //inputs
-    //TODO: Ensure that inputs are number fields
-    @IBOutlet weak var itemTitle: UITextField!
-    @IBOutlet weak var storyPoints: UITextField!
-    @IBOutlet weak var itemPriority: UITextField!
-    
     
     @IBAction func addItemToMainQueue(_ sender: UIButton) {
         if let title = itemTitle?.text, let points = storyPoints?.text, let priority = itemPriority?.text {

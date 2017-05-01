@@ -22,6 +22,8 @@ class PickTimeSubView: UIView {
     
     @IBOutlet weak var timePicker: UIDatePicker!
     
+    
+    
     @IBAction func submitTime(_ sender: UIButton) {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
@@ -43,12 +45,15 @@ class PickTimeSubView: UIView {
         super.init(coder:aDecoder)!
     }
     
+    
     class func fromNib() -> PickTimeSubView {
         let nib = UINib(nibName: "PickTimeSubView", bundle: nil)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! PickTimeSubView
         
         return view
     }
+    
+
     
     
     
