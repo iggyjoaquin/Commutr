@@ -16,10 +16,26 @@ class AddViewController: UIViewController {
     @IBOutlet weak var itemPriority: UITextField!
     @IBOutlet weak var topLabel: UILabel!
     
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        //TODO: Changeme
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
         
         //UI stuff
         let border = CALayer()
@@ -58,6 +74,8 @@ class AddViewController: UIViewController {
     var singleton = CommutrResources.sharedResources;
     
     @IBAction func addItemToMainQueue(_ sender: UIButton) {
+        //TODO: Escape from text screen
+        
         if let title = itemTitle?.text, let points = storyPoints?.text, let priority = itemPriority?.text {
             
             if let numPoints = Double(points), let numPriority = Double(priority) {
