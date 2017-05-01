@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="F7v-Tq-huQ">
-                    <rect key="frame" x="8" y="0.0" width="306" height="281"/>
+                    <rect key="frame" x="8" y="0.0" width="304" height="281"/>
                     <color key="backgroundColor" red="0.19830624191300883" green="0.20227236675126903" blue="0.20227236675126903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="gVc-OP-2Fw"/>
@@ -31,10 +31,10 @@
                     </userDefinedRuntimeAttributes>
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXW-Bn-1MP">
-                    <rect key="frame" x="284" y="0.0" width="65" height="281"/>
+                    <rect key="frame" x="282" y="0.0" width="67" height="281"/>
                     <color key="backgroundColor" red="0.19969365000724792" green="0.20393270254135132" blue="0.20390713214874268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="dish tasks">
+                    <state key="normal" title="Dish tasks">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>

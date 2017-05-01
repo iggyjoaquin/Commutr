@@ -15,6 +15,7 @@ protocol TimeWindowDelegate: class {
 }
 
 class TimeWindowSubView: UIView {
+    @IBOutlet weak var timeLeftLabel: UILabel!
     
     //    var singleton = CommutrResources.sharedResources;
     

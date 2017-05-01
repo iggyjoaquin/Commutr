@@ -97,6 +97,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let rect = route.polyline.boundingMapRect
             self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }
+        
+        //Remove
+        //utils.setView(view: searchResultsTableView, hidden: true)
     }
     
     
@@ -113,6 +116,15 @@ extension MapViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchCompleter.queryFragment = searchText
+        
+        
+        if searchText.characters.count == 0 {
+            searchResultsTableView.isHidden = true
+            mapView.isHidden = false
+        } else {
+            mapView.isHidden = true
+            searchResultsTableView.isHidden = false
+        }
     }
 }
 
@@ -120,6 +132,15 @@ extension MapViewController: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         searchResults = completer.results
+        
+        //hide/show views
+        if searchResults.count > 0 {
+            mapView.isHidden = true
+        } else {
+            searchResultsTableView.isHidden = true
+        }
+        
+        
         searchResultsTableView.reloadData()
     }
     
