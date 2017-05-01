@@ -14,7 +14,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     //import our utils
     let utils : Utilities = Utilities()
-    
+    var sourceSet = false
     
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
@@ -22,13 +22,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var searchResultsTableView: UITableView!
     
     
+    @IBOutlet weak var sourceSearchBar: UISearchBar!
+    @IBOutlet weak var destinationSearchBar: UISearchBar!
+    
     @IBOutlet weak var mapView: MKMapView!
     
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+        searchResultsTableView.isHidden = true
+        mapView.isHidden = false
     }
+    
+    
     
     
     override func viewDidLoad() {
@@ -163,6 +170,7 @@ extension MapViewController: UITableViewDataSource {
         let searchResult = searchResults[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
+        cell.accessoryType = .detailDisclosureButton
         cell.textLabel?.text = searchResult.title
         cell.detailTextLabel?.text = searchResult.subtitle
         return cell
@@ -171,12 +179,21 @@ extension MapViewController: UITableViewDataSource {
 
 extension MapViewController: UITableViewDelegate {
     
+
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        let clickedAddress : String = searchResults[indexPath.row].title
+        
+        if !sourceSet {
+            sourceSearchBar.text = clickedAddress
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let completion = searchResults[indexPath.row]
-        print(searchResults)
-        
+    
         
         let searchRequest = MKLocalSearchRequest(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
