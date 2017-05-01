@@ -24,6 +24,7 @@
 		DC12AFF61EB6AA1100DC60B6 /* MapSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */; };
 		DC12AFF91EB6B25000DC60B6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC12AFF81EB6B25000DC60B6 /* MapKit.framework */; };
 		DC12AFFB1EB6B40100DC60B6 /* MapDirectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */; };
+		DC12AFFD1EB7748C00DC60B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12AFFC1EB7748C00DC60B6 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		DC12AFF51EB6AA1100DC60B6 /* MapSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSubView.swift; sourceTree = "<group>"; };
 		DC12AFF81EB6B25000DC60B6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DC12AFFA1EB6B40100DC60B6 /* MapDirectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDirectionsController.swift; sourceTree = "<group>"; };
+		DC12AFFC1EB7748C00DC60B6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				DC12AFE41EB5590500DC60B6 /* CommutrResources.swift */,
 				DC12AFE61EB5728C00DC60B6 /* AddViewController.swift */,
 				DC12AFEC1EB6559500DC60B6 /* Subviews */,
+				DC12AFFC1EB7748C00DC60B6 /* MapViewController.swift */,
 			);
 			path = Commutr;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				DC12AFE71EB5728C00DC60B6 /* AddViewController.swift in Sources */,
 				DC12AFEB1EB644DF00DC60B6 /* PickTimeSubView.swift in Sources */,
 				DC12AFB71EB549B900DC60B6 /* SecondViewController.swift in Sources */,
+				DC12AFFD1EB7748C00DC60B6 /* MapViewController.swift in Sources */,
 				DC12AFB31EB549B900DC60B6 /* AppDelegate.swift in Sources */,
 				DC12AFB51EB549B900DC60B6 /* FirstViewController.swift in Sources */,
 				DC12AFE51EB5590500DC60B6 /* CommutrResources.swift in Sources */,

@@ -55,12 +55,16 @@ class FirstViewController: UIViewController {
         tableView.dataSource = self
         
         
-        //manually add items
+        //adding to fix offset
+        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+        
+        //manually add items to test
+
         CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
         CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
-        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
-        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
-        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+
+//        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+//        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
     
     }
     
@@ -75,6 +79,7 @@ class FirstViewController: UIViewController {
         //    print(interval)
         //}
         
+
         minimumConstraint = timePickerBottomConstraint.constant
         
         minimumHeight = tableViewTopConstraint.constant
@@ -125,15 +130,13 @@ extension FirstViewController : UITableViewDataSource {
         var idx : Int = (indexPath.row - 1)
         var listems = CommutrResources.sharedResources.getAllItems()
         cell.textLabel?.text = listems[idx].title
-        
-        
-        
+        cell.detailTextLabel?.text = "Priority: " +  String(listems[idx].priority)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CommutrResources.sharedResources.getAllItems().count
+        return CommutrResources.sharedResources.getAllItems().count + 1
     }
     
     
