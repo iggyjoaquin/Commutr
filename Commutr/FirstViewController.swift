@@ -53,6 +53,14 @@ class FirstViewController: UIViewController {
     
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        //manually add items
+        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
     
     }
     
@@ -115,7 +123,8 @@ extension FirstViewController : UITableViewDataSource {
         }
         
         var idx : Int = (indexPath.row - 1)
-        
+        var listems = CommutrResources.sharedResources.getAllItems()
+        cell.textLabel?.text = listems[idx].title
         
         
         
@@ -124,7 +133,7 @@ extension FirstViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 14
+        return CommutrResources.sharedResources.getAllItems().count
     }
     
     
