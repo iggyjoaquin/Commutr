@@ -97,9 +97,7 @@ extension FirstViewController : TimeWindowDelegate {
         
         //TODO: Call sort list method here and reset clock ... etc
         //Left todo:
-        // - Buttons on items to mark completed
         // - Sort the list algorithm
-        // - Logic for Map inputs
         // - Reseting the "state" of the app
         // - Settings page, tie in with singleton and finish autolayout
         // - App icons
@@ -149,6 +147,14 @@ extension FirstViewController : UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         //got cell
+        let idx = indexPath.row - 1
+        CommutrResources.sharedResources.removeItem(idx: idx)
+        tableView.reloadData()
+        
+    }
+    
 }
 
 extension FirstViewController : UITableViewDataSource {
@@ -167,7 +173,7 @@ extension FirstViewController : UITableViewDataSource {
         cell.detailTextLabel?.text = "Priority: " +  String(listems[idx].priority)
         
         //TODO: Add complete button
-        
+        cell.accessoryType = .checkmark
         return cell
     }
     

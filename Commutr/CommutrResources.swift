@@ -34,12 +34,14 @@ class CommutrResources {
         //print("Singleton initialized")
     }
     
-
-    
     //item methods
     func addItem(title: String, points: Double, priority: Double) {
         let newItem = ListItem(title: title, storyPoints: points, priority: priority)
         self.items.append(newItem)
+    }
+    
+    func removeItem(idx: Int) {
+        self.items.remove(at: idx)
     }
     
     func getAllItems() -> [ListItem] {

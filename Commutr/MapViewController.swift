@@ -65,12 +65,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
     
-        
+    
         //autocompleter
         searchCompleter.delegate = self
         
@@ -153,6 +149,13 @@ extension MapViewController: UISearchBarDelegate {
         if searchText.characters.count == 0 {
             searchResultsTableView.isHidden = true
             mapView.isHidden = false
+            
+            if searchBar.placeholder == "Source" {
+                sourceSet = false
+            } else { //destination
+                destinationSet = false
+            }
+            
         } else {
             mapView.isHidden = true
             searchResultsTableView.isHidden = false
@@ -207,6 +210,13 @@ extension MapViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let clickedAddress : String = searchResults[indexPath.row].title + " " + searchResults[indexPath.row].subtitle
         
         
@@ -219,20 +229,10 @@ extension MapViewController: UITableViewDelegate {
             destinationSet = true
         }
         
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let completion = searchResults[indexPath.row]
-    
-        
-        let searchRequest = MKLocalSearchRequest(completion: completion)
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { (response, error) in
-            let coordinate = response?.mapItems[0].placemark.coordinate
-            print(String(describing: coordinate))
-        }
+        view.endEditing(true)
+        searchResultsTableView.isHidden = true
+        mapView.isHidden = false
+       
     }
 }
 
