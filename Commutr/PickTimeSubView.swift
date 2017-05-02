@@ -31,6 +31,8 @@ class PickTimeSubView: UIView {
         
         var calendar = Calendar.current
         var timeInSeconds: TimeInterval = 0
+    
+
         timeInSeconds += 3600 * Double(calendar.component(.hour, from: timePicker.date))
         timeInSeconds += 60 * Double(calendar.component(.minute, from: timePicker.date))
     

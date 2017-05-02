@@ -66,14 +66,22 @@ class CommutrResources {
         let currTime = self.timeInSeconds
         let minutes = currTime! / 60
         let hours = floor(minutes / 60)
-        
         let leftOverMinutes = minutes - (hours * 60)
         
-        print(currTime)
-        print("\(leftOverMinutes) <- minutes")
-        print("\(hours) <- hours")
+        var ret = ""
         
-        return "yo"
+        if Int(hours) == 0 {
+            ret = "\(Int(leftOverMinutes)) minutes"
+            return ret
+        }
+        
+        if minutes == 0 {
+            ret = "\(Int(hours)) hours"
+            return ret
+        }
+        
+        ret = "\(Int(hours)) hours and \(Int(leftOverMinutes)) minutes"
+        return ret
     }
     
     

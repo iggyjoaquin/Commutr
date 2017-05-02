@@ -96,14 +96,14 @@ extension FirstViewController: PickTimeDelegate {
             //store in our singleton / shared resources
             CommutrResources.sharedResources.setTimeForTasks(time: time)
         
-            print(time)
+            //BUG: Need to move datepicker otherwise initial minute value is wrong
             //hide picker
-//            util.setView(view: timeSubview!, hidden: true)
-//            util.setView(view: timeWindowSubview!, hidden: false)
+            util.setView(view: timeSubview!, hidden: true)
+            util.setView(view: timeWindowSubview!, hidden: false)
         
             if (CommutrResources.sharedResources.useNaturalLanguageTime) {
                 let time : String = CommutrResources.sharedResources.getNaturalLanguageTime()
-                timeWindowSubview?.setTimeLable(time: " Heyyyyyy")
+                timeWindowSubview?.setTimeLable(time: time)
             }
         
         
