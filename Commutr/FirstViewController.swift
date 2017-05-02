@@ -37,9 +37,15 @@ class FirstViewController: UIViewController {
         loadSubviews()
         formatUI()
         
+        //delegates and data sources
         tableView.delegate = self
         tableView.dataSource = self
         timeWindowSubview?.delegate = self
+        
+        //HACK
+        let map = self.tabBarController?.viewControllers?[1] as? MapViewController
+        map?.delegate = self
+        
         
         //manually add items to test
         CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
@@ -128,6 +134,23 @@ extension FirstViewController: PickTimeDelegate {
         
     }
     
+}
+
+extension FirstViewController : MapViewDelegate {
+    func userDidSetMapETA(_ view: MapViewController, time: TimeInterval) {
+        
+        print("Called")
+        //store in our singleton / shared resources
+        CommutrResources.sharedResources.setTimeForTasks(time: time)
+        
+        util.setView(view: timeSubview!, hidden: true)
+        util.setView(view: timeWindowSubview!, hidden: false)
+        
+        if (CommutrResources.sharedResources.useNaturalLanguageTime) {
+            let time : String = CommutrResources.sharedResources.getNaturalLanguageTime()
+            timeWindowSubview?.setTimeLable(time: time)
+        }
+    }
 }
 
 extension FirstViewController : UITableViewDelegate {

@@ -20,8 +20,6 @@ class TimeWindowSubView: UIView {
     
     //outlets
     @IBOutlet weak var timeLeftLabel: UILabel!
-    
-
     weak var delegate: TimeWindowDelegate?
     
     @IBAction func resetTimeButton(_ sender: UIButton) {

@@ -10,31 +10,27 @@
 import UIKit
 import MapKit
 
+protocol MapViewDelegate: class {
+    func userDidSetMapETA(_ view: MapViewController, time: TimeInterval)
+}
+
+
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     //import our utils
     let utils : Utilities = Utilities()
     var sourceSet = false
     var destinationSet = false
-    
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
+    weak var delegate: MapViewDelegate?
     
+    
+    //outlets
     @IBOutlet weak var searchResultsTableView: UITableView!
-    
-    
     @IBOutlet weak var sourceSearchBar: UISearchBar!
     @IBOutlet weak var destinationSearchBar: UISearchBar!
-    
     @IBOutlet weak var mapView: MKMapView!
-    
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-        searchResultsTableView.isHidden = true
-        mapView.isHidden = false
-    }
     
     //invoked when Go is hit
     //gets ETA in seconds and draws route
@@ -43,9 +39,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
        
         mapDirectionsController.getETA(addressOne: sourceSearchBar.text!, addressTwo: destinationSearchBar.text!) { (timeInSeconds) in
             
-            //timeInSeconds is ETA for inputs
-            //Store it in our singleton
-            CommutrResources.sharedResources.setTimeForTasks(time: timeInSeconds)
+            //notify delegate
+            self.delegate?.userDidSetMapETA(self, time: timeInSeconds)
             
             //Get our locations for map render
             mapDirectionsController.addressToCoordinates(address: self.sourceSearchBar.text!, callback: { (locationOne) in
@@ -81,6 +76,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return renderer
     }
     
+    //TODO: Change
     func renderMapRoute(locationOne: CLLocation, locationTwo: CLLocation) {
         //map route
         mapView.delegate = self
@@ -93,24 +89,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
         let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-        
-        
-        //TODO: Find out what this is doing
-        let sourceAnnotation = MKPointAnnotation()
-        sourceAnnotation.title = "Times Square"
-        
-        if let location = sourcePlacemark.location {
-            sourceAnnotation.coordinate = location.coordinate
-        }
-        
-        let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = "Empire State Building"
-        
-        if let location = destinationPlacemark.location {
-            destinationAnnotation.coordinate = location.coordinate
-        }
-        
-        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
         
         let directionRequest = MKDirectionsRequest()
         directionRequest.source = sourceMapItem
@@ -198,7 +176,7 @@ extension MapViewController: UITableViewDataSource {
         let searchResult = searchResults[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        cell.accessoryType = .detailDisclosureButton
+        cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = searchResult.title
         cell.detailTextLabel?.text = searchResult.subtitle
         return cell
