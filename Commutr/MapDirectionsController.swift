@@ -11,19 +11,20 @@ import MapKit
 import CoreLocation
 
 class MapDirectionsController {
-    func getDirections(address: String, callback: @escaping (MKDirections) -> Void) {
+    func getDirections(addressOne: String, addressTwo: String, callback: @escaping (MKDirections) -> Void) {
+        
         let directionsRequestObject = MKDirectionsRequest()
         
         //directionsRequestObject.source = MKMapItem.forCurrentLocation()
         
         var geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address) { (placemarks, error) in
+        geocoder.geocodeAddressString(addressOne) { (placemarks, error) in
             guard error == nil else {
                 print(error)
                 return
             }
             
-            geocoder.geocodeAddressString("33 65th Street, NJ, USA", completionHandler: { (placemarksSecondAddrress, errorSecondAddress) in
+            geocoder.geocodeAddressString(addressTwo, completionHandler: { (placemarksSecondAddrress, errorSecondAddress) in
                 guard error == nil else {
                     print(errorSecondAddress)
                     return
@@ -57,8 +58,8 @@ class MapDirectionsController {
         
     }
     
-    func getETA(address: String, callback: @escaping (TimeInterval) -> Void) {
-        getDirections(address: address) { (directions) in
+    func getETA(addressOne: String, addressTwo: String, callback: @escaping (TimeInterval) -> Void) {
+        getDirections(addressOne: addressOne, addressTwo: addressTwo) { (directions) in
             
         
             let eta = directions.calculateETA(completionHandler: { (response, error) in
@@ -74,5 +75,23 @@ class MapDirectionsController {
         }
     }
     
+    func addressToCoordinates(address: String, callback: @escaping (CLLocation) -> Void) {
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+                else {
+                    // handle no location found
+                    return
+            }
+            
+            
+            callback(location)
+        }
+        
+        
+    }
 
 }

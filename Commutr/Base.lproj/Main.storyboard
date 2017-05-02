@@ -55,7 +55,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H83-QP-P4U" id="ffG-FX-fso">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -78,6 +78,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addItemToMainQueue:" destination="Vfu-62-6ON" eventType="touchUpInside" id="a6w-NT-hcA"/>
+                                    <action selector="getDirections:" destination="3fs-By-K9k" eventType="touchUpInside" id="RNx-b6-x0Y"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Calculate your ETA ⚑" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-RJ-pfg">

@@ -15,6 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //import our utils
     let utils : Utilities = Utilities()
     var sourceSet = false
+    var destinationSet = false
     
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
@@ -35,7 +36,32 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.isHidden = false
     }
     
-    
+    //invoked when Go is hit
+    //gets ETA in seconds and draws route
+    @IBAction func getDirections(_ sender: UIButton) {
+        let mapDirectionsController = MapDirectionsController()
+       
+        mapDirectionsController.getETA(addressOne: sourceSearchBar.text!, addressTwo: destinationSearchBar.text!) { (timeInSeconds) in
+            
+            //timeInSeconds is ETA for inputs
+            //TODO: store it in our singleton
+            
+            print(timeInSeconds)
+            
+            //Get our locations for map render
+            mapDirectionsController.addressToCoordinates(address: self.sourceSearchBar.text!, callback: { (locationOne) in
+                let firstLocation = locationOne
+                
+                //get second location
+                mapDirectionsController.addressToCoordinates(address: self.destinationSearchBar.text!, callback: { (locationTwo) in
+                    let secondLocation = locationTwo
+                    
+                    //render out route
+                    self.renderMapRoute(locationOne: firstLocation, locationTwo: secondLocation)
+                })
+            })
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -49,12 +75,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         //autocompleter
         searchCompleter.delegate = self
         
-
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = utils.hexStringToUIColor(hex: "#81A3FF")
+        renderer.lineWidth = 4.0
+        
+        return renderer
+    }
+    
+    func renderMapRoute(locationOne: CLLocation, locationTwo: CLLocation) {
         //map route
         mapView.delegate = self
         
-        let sourceLocation = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472)
-        let destinationLocation = CLLocationCoordinate2D(latitude: 40.748441, longitude: -73.985564)
+        let sourceLocation = CLLocationCoordinate2D(latitude: locationOne.coordinate.latitude, longitude: locationOne.coordinate.longitude)
+        let destinationLocation = CLLocationCoordinate2D(latitude: locationTwo.coordinate.latitude, longitude: locationTwo.coordinate.longitude)
         
         let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
         let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
@@ -104,18 +141,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let rect = route.polyline.boundingMapRect
             self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }
-        
-        //Remove
-        //utils.setView(view: searchResultsTableView, hidden: true)
-    }
-    
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = utils.hexStringToUIColor(hex: "#81A3FF")
-        renderer.lineWidth = 4.0
-        
-        return renderer
     }
 }
 
@@ -123,8 +148,7 @@ extension MapViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchCompleter.queryFragment = searchText
-        
-        
+    
         if searchText.characters.count == 0 {
             searchResultsTableView.isHidden = true
             mapView.isHidden = false
@@ -182,11 +206,18 @@ extension MapViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        let clickedAddress : String = searchResults[indexPath.row].title
+        let clickedAddress : String = searchResults[indexPath.row].title + " " + searchResults[indexPath.row].subtitle
         
+        
+        //TODO: Fix this logic it's a a hack right now
         if !sourceSet {
             sourceSearchBar.text = clickedAddress
+            sourceSet = true
+        } else if (!destinationSet) {
+            destinationSearchBar.text = clickedAddress
+            destinationSet = true
         }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
