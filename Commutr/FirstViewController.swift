@@ -64,12 +64,6 @@ class FirstViewController: UIViewController {
     }
     
     
-    func resetClock() {
-        //show picker
-        
-        //set time is set to false
-    }
-    
     func loadSubviews() {
         let loadTimeSubview = PickTimeSubView.fromNib()
         subviewsContainer.addSubview(loadTimeSubview)
@@ -101,7 +95,17 @@ extension FirstViewController : TimeWindowDelegate {
         util.setView(view: timeWindowSubview!, hidden: true)
         util.setView(view: timeSubview!, hidden: false)
         
-        //TODO: Call sort list method here
+        //TODO: Call sort list method here and reset clock ... etc
+        //Left todo:
+        // - Buttons on items to mark completed
+        // - Sort the list algorithm
+        // - Logic for Map inputs
+        // - Reseting the "state" of the app
+        // - Settings page, tie in with singleton and finish autolayout
+        // - App icons
+        // - Presentation board
+
+
     }
 }
 
@@ -161,6 +165,8 @@ extension FirstViewController : UITableViewDataSource {
         var listems = CommutrResources.sharedResources.getAllItems()
         cell.textLabel?.text = listems[idx].title
         cell.detailTextLabel?.text = "Priority: " +  String(listems[idx].priority)
+        
+        //TODO: Add complete button
         
         return cell
     }
