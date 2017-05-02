@@ -39,6 +39,7 @@ class FirstViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        timeWindowSubview?.delegate = self
         
         //manually add items to test
         CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
@@ -63,6 +64,12 @@ class FirstViewController: UIViewController {
     }
     
     
+    func resetClock() {
+        //show picker
+        
+        //set time is set to false
+    }
+    
     func loadSubviews() {
         let loadTimeSubview = PickTimeSubView.fromNib()
         subviewsContainer.addSubview(loadTimeSubview)
@@ -86,6 +93,16 @@ class FirstViewController: UIViewController {
     
     
     
+}
+
+extension FirstViewController : TimeWindowDelegate {
+    func timeWindowSubviewDidTapReset(_ subview: TimeWindowSubView) {
+        
+        util.setView(view: timeWindowSubview!, hidden: true)
+        util.setView(view: timeSubview!, hidden: false)
+        
+        //TODO: Call sort list method here
+    }
 }
 
 

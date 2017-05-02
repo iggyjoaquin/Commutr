@@ -75,7 +75,7 @@ class CommutrResources {
             return ret
         }
         
-        if minutes == 0 {
+        if leftOverMinutes == 0 {
             ret = "\(Int(hours)) hours"
             return ret
         }

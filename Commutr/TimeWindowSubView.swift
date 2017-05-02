@@ -9,17 +9,24 @@
 import UIKit
 
 protocol TimeWindowDelegate: class {
+  
     
-    //func pickTimeSubview(_ subview: PickTimeSubView, didSelect time: TimeInterval)
+    func timeWindowSubviewDidTapReset(_ subview: TimeWindowSubView)
     
 }
 
 class TimeWindowSubView: UIView {
+    var util = Utilities()
+    
+    //outlets
     @IBOutlet weak var timeLeftLabel: UILabel!
     
-    //    var singleton = CommutrResources.sharedResources;
-    
+
     weak var delegate: TimeWindowDelegate?
+    
+    @IBAction func resetTimeButton(_ sender: UIButton) {
+        delegate?.timeWindowSubviewDidTapReset(self)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
