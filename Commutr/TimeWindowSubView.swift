@@ -37,4 +37,8 @@ class TimeWindowSubView: UIView {
         return view
     }
     
+    func setTimeLable(time: String) {
+        timeLeftLabel.text = time
+    }
+    
 }

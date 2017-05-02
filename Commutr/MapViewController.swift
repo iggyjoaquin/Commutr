@@ -44,9 +44,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapDirectionsController.getETA(addressOne: sourceSearchBar.text!, addressTwo: destinationSearchBar.text!) { (timeInSeconds) in
             
             //timeInSeconds is ETA for inputs
-            //TODO: store it in our singleton
-            
-            print(timeInSeconds)
+            //Store it in our singleton
+            CommutrResources.sharedResources.setTimeForTasks(time: timeInSeconds)
             
             //Get our locations for map render
             mapDirectionsController.addressToCoordinates(address: self.sourceSearchBar.text!, callback: { (locationOne) in
@@ -99,6 +98,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
         let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
         
+        
+        //TODO: Find out what this is doing
         let sourceAnnotation = MKPointAnnotation()
         sourceAnnotation.title = "Times Square"
         

@@ -93,11 +93,20 @@ extension FirstViewController: PickTimeDelegate {
     
     func pickTimeSubview(_ subview: PickTimeSubView, didSelect time: TimeInterval) {
         
-            //TODO: Stuff with shared resources
+            //store in our singleton / shared resources
+            CommutrResources.sharedResources.setTimeForTasks(time: time)
         
+            print(time)
             //hide picker
-            util.setView(view: timeSubview!, hidden: true)
-            util.setView(view: timeWindowSubview!, hidden: false)
+//            util.setView(view: timeSubview!, hidden: true)
+//            util.setView(view: timeWindowSubview!, hidden: false)
+        
+            if (CommutrResources.sharedResources.useNaturalLanguageTime) {
+                let time : String = CommutrResources.sharedResources.getNaturalLanguageTime()
+                timeWindowSubview?.setTimeLable(time: " Heyyyyyy")
+            }
+        
+        
     }
     
 }
