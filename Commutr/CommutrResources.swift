@@ -13,19 +13,24 @@ class CommutrResources {
     var timeIsSet = false
     var timeInSeconds : TimeInterval? = nil
     
-    //settings
-    var useNaturalLanguageTime = true
     
+    //settings
+    var filterList = true
+    var useNaturalLanguageTime = true
+    var pointsScalar = 30
     
     struct ListItem {
         var title: String
         var storyPoints: Double
         var priority: Double
+        var timeNeeded : Int
+        var scale = CommutrResources.sharedResources.pointsScalar
         
         init(title: String, storyPoints: Double, priority: Double) {
             self.title = title
             self.storyPoints = storyPoints
             self.priority = priority
+            self.timeNeeded = Int(storyPoints) * scale
         }
         
     }
@@ -53,16 +58,78 @@ class CommutrResources {
         return ret
     }
     
+    func sortTasks(callback: @escaping (Bool) -> Void) {
+        //determine how to sort
+        let currTime = self.timeInSeconds
+        let minutes = currTime! / 60
+        let hours = floor(minutes / 60)
+        
+        if (hours >= 2) {
+            //sort by priority, then time
+            self.items.sort { (first, second) in return first.priority < second.priority}
+            self.items.sort { (first, second) in return first.timeNeeded < second.timeNeeded }
+        }
+        
+        if (hours < 2) {
+            //sort by time, then priority
+            self.items.sort { (first, second) in return first.timeNeeded < second.timeNeeded }
+            self.items.sort { (first, second) in return first.priority < second.priority}
+        }
+    
+        //necessary to reload list table view at the right time
+        callback(true)
+        
+    }
+    
     //ETA or inputted time methods
     func setTimeForTasks(time: TimeInterval) {
-        self.timeIsSet = true
         self.timeInSeconds = time
-
+        self.timeIsSet = true
+        
+    }
+    
+    func resetTime() {
+        self.timeIsSet = false
     }
     
     func getTimeForTask() -> TimeInterval {
         return self.timeInSeconds!
     }
+    
+    func getTime() -> String {
+        var ret = ""
+        
+        if (self.useNaturalLanguageTime) {
+            ret = self.getNaturalLanguageTime()
+        } else {
+            ret = self.getDigitalTime()
+        }
+        
+        return ret
+    }
+    
+    func getDigitalTime() -> String {
+        let currTime = self.timeInSeconds
+        let minutes = currTime! / 60
+        let hours = floor(minutes / 60)
+        let leftOverMinutes = minutes - (hours * 60)
+        
+        var ret = ""
+        
+        if Int(hours) == 0 {
+            ret = "\(Int(leftOverMinutes)) minutes"
+            return ret
+        }
+        
+        if leftOverMinutes == 0 {
+            ret = "\(Int(hours)) hours"
+            return ret
+        }
+        
+        ret = "\(Int(hours)):\(Int(leftOverMinutes))"
+        return ret
+    }
+    
     
     func getNaturalLanguageTime() -> String  {
         let currTime = self.timeInSeconds
@@ -87,5 +154,10 @@ class CommutrResources {
     }
     
     
-    
+    //settings methods
+    func updateSettings(naturalLanguageClock: Bool, filterList: Bool, pointsScalar: Int) {
+        self.useNaturalLanguageTime = naturalLanguageClock
+        self.filterList = filterList
+        self.pointsScalar = pointsScalar
+    }
 }

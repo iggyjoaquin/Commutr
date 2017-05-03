@@ -28,12 +28,9 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-        //TODO: Changeme
-        //Looks for single or multiple taps.
+        //hide keyboard on tap
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
-        
         
         formatUserInterface()
     }
@@ -58,7 +55,6 @@ class AddViewController: UIViewController {
                 let alertController = UIAlertController(title: "Task added", message:
                     "We added a task to todays list.", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                
                 self.present(alertController, animated: true, completion: nil)
                 
             }

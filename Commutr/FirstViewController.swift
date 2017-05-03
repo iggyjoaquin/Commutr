@@ -48,21 +48,17 @@ class FirstViewController: UIViewController {
         
         
         //manually add items to test
-        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
-        CommutrResources.sharedResources.addItem(title: "Test", points: 2.0, priority:10.0)
+        CommutrResources.sharedResources.addItem(title: "Highest points", points: 4.0, priority:10.0)
+        CommutrResources.sharedResources.addItem(title: "Middle points", points: 2.0, priority:20.0)
+        CommutrResources.sharedResources.addItem(title: "Least points", points: 1.0, priority:7.0)
+        
+        
     
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //var manager = CLLocationManager()
-        
-        //if CLLocationManager.authorizationStatus() == .notDetermined {
-        //    print("Was not determined")
-        //    manager.requestWhenInUseAuthorization()
-        //}
-     
+
         minimumConstraint = timePickerBottomConstraint.constant
-        
         minimumHeight = tableViewTopConstraint.constant
         tableView.reloadData()
         
@@ -90,9 +86,7 @@ class FirstViewController: UIViewController {
     func formatUI() {
         timeWindowSubview?.isHidden = true
     }
-    
-    
-    
+
 }
 
 extension FirstViewController : TimeWindowDelegate {
@@ -100,16 +94,9 @@ extension FirstViewController : TimeWindowDelegate {
         
         util.setView(view: timeWindowSubview!, hidden: true)
         util.setView(view: timeSubview!, hidden: false)
-        
-        //TODO: Call sort list method here and reset clock ... etc
-        //Left todo:
-        // - Sort the list algorithm
-        // - Reseting the "state" of the app
-        // - Settings page, tie in with singleton and finish autolayout
-        // - App icons
-        // - Presentation board
-
-
+        //set time set to false
+        CommutrResources.sharedResources.resetTime()
+    
     }
 }
 
@@ -121,27 +108,32 @@ extension FirstViewController: PickTimeDelegate {
             //store in our singleton / shared resources
             CommutrResources.sharedResources.setTimeForTasks(time: time)
         
+            //reload data once we've sorted
+            CommutrResources.sharedResources.sortTasks { (success) in
+                self.tableView.reloadData()
+            }
+        
             //BUG: Need to move datepicker otherwise initial minute value is wrong
             //hide picker
             util.setView(view: timeSubview!, hidden: true)
             util.setView(view: timeWindowSubview!, hidden: false)
         
-            if (CommutrResources.sharedResources.useNaturalLanguageTime) {
-                let time : String = CommutrResources.sharedResources.getNaturalLanguageTime()
-                timeWindowSubview?.setTimeLable(time: time)
-            }
-        
-        
+            let time : String = CommutrResources.sharedResources.getTime()
+            timeWindowSubview?.setTimeLable(time: time)
     }
     
 }
 
 extension FirstViewController : MapViewDelegate {
     func userDidSetMapETA(_ view: MapViewController, time: TimeInterval) {
-        
-        print("Called")
+    
         //store in our singleton / shared resources
         CommutrResources.sharedResources.setTimeForTasks(time: time)
+        
+        //reload data once we've sorted
+        CommutrResources.sharedResources.sortTasks { (success) in
+            self.tableView.reloadData()
+        }
         
         util.setView(view: timeSubview!, hidden: true)
         util.setView(view: timeWindowSubview!, hidden: false)
@@ -193,7 +185,7 @@ extension FirstViewController : UITableViewDataSource {
         var idx : Int = (indexPath.row - 1)
         var listems = CommutrResources.sharedResources.getAllItems()
         cell.textLabel?.text = listems[idx].title
-        cell.detailTextLabel?.text = "Priority: " +  String(listems[idx].priority)
+        cell.detailTextLabel?.text = "Points: " +  String(Int(listems[idx].storyPoints))
         
         //TODO: Add complete button
         cell.accessoryType = .checkmark
