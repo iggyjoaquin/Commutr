@@ -22,31 +22,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commutr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLH-rA-Zda">
-                                <rect key="frame" x="24" y="169" width="291" height="60"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
-                                <color key="textColor" red="0.92504944110647991" green="0.99064880609512329" blue="0.97583865790124058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decisions made a little simpler." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-RJ-1Jn">
-                                <rect key="frame" x="50" y="372" width="312" height="27"/>
+                                <rect key="frame" x="36" y="368" width="303" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.95083229890393361" green="0.96479014339685865" blue="0.99064880609512329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commutr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLH-rA-Zda">
+                                <rect key="frame" x="42" y="169" width="216" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                <color key="textColor" red="0.92504944110647991" green="0.99064880609512329" blue="0.97583865790124058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7ux-tR-LFH">
-                                <rect key="frame" x="257" y="181" width="38" height="39"/>
+                                <rect key="frame" x="275" y="181" width="38" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.40815950797302769" green="0.54960295074169019" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="sQX-RJ-1Jn" secondAttribute="trailing" constant="-3" id="1bg-85-c0j"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dLH-rA-Zda" secondAttribute="trailing" constant="44" id="GUC-I4-EIK"/>
-                            <constraint firstItem="sQX-RJ-1Jn" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="34" id="GjW-Ne-W9F"/>
+                            <constraint firstItem="sQX-RJ-1Jn" firstAttribute="top" secondItem="dLH-rA-Zda" secondAttribute="bottom" constant="139" id="1tf-7W-drf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dLH-rA-Zda" secondAttribute="trailing" constant="101" id="6vh-sc-92g"/>
+                            <constraint firstItem="sQX-RJ-1Jn" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="Gf1-Lm-jUT"/>
+                            <constraint firstItem="dLH-rA-Zda" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="26" id="inm-5u-PzX"/>
                             <constraint firstItem="dLH-rA-Zda" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="149" id="mIb-hN-4VZ"/>
-                            <constraint firstItem="dLH-rA-Zda" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="8" id="mxe-Du-xg7"/>
-                            <constraint firstItem="sQX-RJ-1Jn" firstAttribute="top" secondItem="dLH-rA-Zda" secondAttribute="bottom" constant="143" id="tTQ-9P-kEW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sQX-RJ-1Jn" secondAttribute="trailing" constant="20" id="vsi-QW-TRQ"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -14,7 +14,6 @@ protocol MapViewDelegate: class {
     func userDidSetMapETA(_ view: MapViewController, time: TimeInterval)
 }
 
-
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     //import our utils
@@ -24,7 +23,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
     weak var delegate: MapViewDelegate?
-    
     
     //outlets
     @IBOutlet weak var searchResultsTableView: UITableView!
@@ -61,7 +59,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-    
         //autocompleter
         searchCompleter.delegate = self
         
@@ -70,34 +67,33 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = utils.hexStringToUIColor(hex: "#81A3FF")
+        renderer.strokeColor = utils.hexStringToUIColor(hexCode: "#81A3FF")
         renderer.lineWidth = 4.0
         
         return renderer
     }
     
-    //TODO: Change
     func renderMapRoute(locationOne: CLLocation, locationTwo: CLLocation) {
         //map route
         mapView.delegate = self
         
-        let sourceLocation = CLLocationCoordinate2D(latitude: locationOne.coordinate.latitude, longitude: locationOne.coordinate.longitude)
-        let destinationLocation = CLLocationCoordinate2D(latitude: locationTwo.coordinate.latitude, longitude: locationTwo.coordinate.longitude)
+        let source = CLLocationCoordinate2D(latitude: locationOne.coordinate.latitude, longitude: locationOne.coordinate.longitude)
+        let destination = CLLocationCoordinate2D(latitude: locationTwo.coordinate.latitude, longitude: locationTwo.coordinate.longitude)
         
-        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
-        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        let sourcePlacemark = MKPlacemark(coordinate: source, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destination, addressDictionary: nil)
         
-        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        let sourceMap = MKMapItem(placemark: sourcePlacemark)
+        let destinationMap = MKMapItem(placemark: destinationPlacemark)
         
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
+        let req = MKDirectionsRequest()
+        req.source = sourceMap
+        req.destination = destinationMap
+        req.transportType = .automobile
         
-        // Calculate the direction
-        let directions = MKDirections(request: directionRequest)
+        let directions = MKDirections(request: req)
         
+        //request directions
         directions.calculate {
             (response, error) -> Void in
             
@@ -105,12 +101,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 if let error = error {
                     print("Error: \(error)")
                 }
-                
                 return
             }
             
             let route = response.routes[0]
-            
             self.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
             
             let rect = route.polyline.boundingMapRect

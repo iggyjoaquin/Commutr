@@ -17,10 +17,9 @@ class Utilities {
         }, completion: nil)
     }
     
-    //TODO: Change a bit
     //Returns a UIColor when given a hex code
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    func hexStringToUIColor (hexCode:String) -> UIColor {
+        var cString:String = hexCode.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)

@@ -73,60 +73,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Commutr/Utilities.swift"
-            timestampString = "515384213.884597"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "setView(view:hidden:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Commutr.Utilities.setView (view : __ObjC.UIView, hidden : Swift.Bool) -&gt; ()"
-                  moduleName = "Commutr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/Utilities.swift"
-                  timestampString = "515384239.188133"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "355">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Commutr.Utilities.(setView (view : __ObjC.UIView, hidden : Swift.Bool) -&gt; ()).(closure #1)"
-                  moduleName = "Commutr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dstreuly/Documents/NYUClasses/S17/iOS/finalProject/Commutr/Commutr/Utilities.swift"
-                  timestampString = "515384239.191547"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "54">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Commutr/MapViewController.swift"
-            timestampString = "515458696.692656"
+            timestampString = "515536707.0805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "getDirections(_:)"
             landmarkType = "7">
          </BreakpointContent>

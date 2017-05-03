@@ -37,6 +37,7 @@ class FirstViewController: UIViewController {
         loadSubviews()
         formatUI()
         
+        
         //delegates and data sources
         tableView.delegate = self
         tableView.dataSource = self
